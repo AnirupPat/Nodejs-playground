@@ -34,7 +34,7 @@ const {label, price, stock, rating} = product
 console.log(label)
 console.log(price)
 console.log(stock)
-//console.log(salesPrice) - this will throw an errow
+console.log(salesPrice) //- this will throw an errow
 console.log(rating) // this will give undefined, as rating is not a property of product
 
 // To rename a property, we will have to do this
@@ -58,9 +58,13 @@ const transaction = (type, myProduct) => {
 transaction('orders', product)
 
 // New way to do the same above thing
-const transaction = (type, {label, stock, price }) => {
+const transaction = (type, {label='test label', stock=10, price } = {} ) => {
+    // destructuing along with default values  - above line
     console.log(label)
     console.log(stock)
 }
 
 transaction('orders', product)
+
+// Another scenario
+transaction('orders')
